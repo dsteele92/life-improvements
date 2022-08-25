@@ -1,0 +1,55 @@
+@import 'sass';
+
+.Background {
+	background-image: url(../../../images/home2.jpg);
+	background-color: rgb(255, 255, 255);
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 100%;
+	height: 100vh;
+	overflow: hidden;
+	background-attachment: fixed;
+
+	.Overlay {
+		// position: relative;
+		width: 100%;
+		height: 100%;
+		// background: rgba($color: #000000, $alpha: 0.2);
+	}
+
+	.Content {
+		display: flex;
+		// background-color: antiquewhite;
+		height: 100%;
+		padding: 50px;
+		@include flex-center;
+		text-align: center;
+		p {
+			letter-spacing: 1pt;
+			font-size: large;
+		}
+
+		// .LeftColumn {
+		// 	width: 50%;
+		// 	height: 100vh;
+		// 	padding: 50px;
+		// 	@include flex-center;
+		// 	text-align: center;
+		// 	p {
+		// 		letter-spacing: 1pt;
+		// 		font-size: large;
+		// 	}
+		// }
+		// .RightColumn {
+		// 	width: 50%;
+		// 	height: 100vh;
+		// 	background-image: url(../../../images/home3.jpg);
+		// 	background-size: 70%;
+		// 	background-position: center;
+		// 	background-repeat: no-repeat;
+		// 	overflow: hidden;
+		// 	padding: 30px;
+		// }
+	}
+}
