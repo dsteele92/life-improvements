@@ -1,32 +1,12 @@
 @import 'sass';
 
-.Scrolled {
-	width: 100%;
-	height: 80px;
-	position: fixed;
-	@include flex-center();
-	.Inner {
-		width: 1800px;
-		padding: 20px;
-		display: flex;
-		justify-content: flex-end;
-		.Bars {
-			margin-right: 20px;
-			color: white;
-		}
-	}
-}
-
-.Top {
+.TopNav {
 	width: 100%;
 	height: 80px;
 	background: rgba($color: #000000, $alpha: 0.3);
 	position: absolute;
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
 	@include flex-center();
-	display: flex;
-	// transition: all 5s ease-in-out;
-	animation: ease-out 500ms;
 
 	@media screen and (max-width: $breakpoint-mobile) {
 		position: fixed;
@@ -36,7 +16,9 @@
 
 	.Inner {
 		width: 1800px;
+		height: 100%;
 		padding: 20px;
+		margin: auto;
 
 		ul {
 			display: flex;
@@ -80,4 +62,54 @@
 			}
 		}
 	}
+}
+
+.ScrollingNav {
+	// display: none;
+	opacity: 0;
+	width: 100%;
+	height: 80px;
+	position: fixed;
+	@include flex-center();
+	.Inner {
+		width: 1800px;
+		padding: 20px;
+		display: flex;
+		justify-content: flex-end;
+		.Bars {
+			margin-right: 20px;
+			color: white;
+		}
+	}
+}
+
+@keyframes disappear {
+	from {
+		opacity: 1;
+	}
+	to {
+		opacity: 0;
+	}
+}
+
+@keyframes appear {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.TopDisappear {
+	@extend .TopNav;
+	animation: disappear 2s;
+	// animation-fill-mode: forwards;
+}
+
+.ScrollingAppear {
+	@extend .ScrollingNav;
+	// display: block;
+	animation: appear 2s;
+	animation-fill-mode: forwards;
 }

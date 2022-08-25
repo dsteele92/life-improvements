@@ -7,20 +7,11 @@ import { FaBars } from 'react-icons/fa';
 import Style from './navbar.module.scss';
 
 export default function Navbar() {
-	const topRef = useRef();
-	const scrollRef = useRef();
-
-	// const [yScroll, setYScroll] = useState(0);
+	const [yScroll, setYScroll] = useState(0);
 
 	useEffect(() => {
 		const handleScroll = (event) => {
-			console.log(topRef.current.style);
-			// topRef.current.style.display = 'none';
-			// if (window.scrollY === 0) {
-
-			// }
-			// setYScroll(window.scrollY);
-			// console.log(window);
+			setYScroll(window.scrollY);
 		};
 		window.addEventListener('scroll', handleScroll);
 
@@ -31,34 +22,7 @@ export default function Navbar() {
 
 	return (
 		<div>
-			{/* {yScroll === 0 ? (
-				<nav className={Style.Top}>
-					<div className={Style.Inner}>
-						<ul>
-							<li className={Style.Logo}>Life Improvements</li>
-							<li>
-								<FaBars className={Style.Bars} />
-							</li>
-							{navbarData.map((item, index) => (
-								<li className={Style.Links} key={index}>
-									<Link to={item.link}>
-										<div>{item.title}</div>
-									</Link>
-								</li>
-							))}
-						</ul>
-					</div>
-				</nav>
-			) : (
-				<nav className={Style.Scrolled}>
-					<div className={Style.Inner}>
-						<div className={Style.Bars}>
-							<FaBars className={Style.Bars} />
-						</div>
-					</div>
-				</nav>
-			)} */}
-			<nav className={Style.Top} ref={topRef}>
+			<nav className={yScroll === 0 ? Style.TopNav : Style.TopDisappear}>
 				<div className={Style.Inner}>
 					<ul>
 						<li className={Style.Logo}>Life Improvements</li>
@@ -75,11 +39,9 @@ export default function Navbar() {
 					</ul>
 				</div>
 			</nav>
-			<nav className={Style.Scrolled} ref={scrollRef}>
+			<nav className={yScroll === 0 ? Style.ScrollingNav : Style.ScrollingAppear}>
 				<div className={Style.Inner}>
-					<div className={Style.Bars}>
-						<FaBars className={Style.Bars} />
-					</div>
+					<FaBars className={Style.Bars} />
 				</div>
 			</nav>
 		</div>
